@@ -1,19 +1,35 @@
 "use client";
 import React, { useEffect, useState } from 'react'
 
-const useDarkMode = () => {
-  const [theme, setTheme] = useState(localStorage.theme)
-  const colorTheme = theme === "dark" ? "light" : "dark"
+// const useDarkMode = () => {
+//   const [theme, setTheme] = useState<string>(localStorage.theme)
+//   const colorTheme = theme === "dark" ? "light" : "dark"
+
+//   useEffect(() => {
+//     const root = window.document.documentElement
+//     root.classList.remove(colorTheme)
+//     root.classList.add(theme)
+//     localStorage.setItem("theme" ,  theme)
+//   }, [theme, colorTheme])
+
+
+//   return[colorTheme, setTheme]
+// }
+
+// export default useDarkMode
+
+const useDarkMode = (): [string, React.Dispatch<React.SetStateAction<string>>] => {
+  const [theme, setTheme] = useState<string>(localStorage.theme || 'light');
+  const colorTheme = theme === "dark" ? "light" : "dark";
 
   useEffect(() => {
-    const root = window.document.documentElement
-    root.classList.remove(colorTheme)
-    root.classList.add(theme)
-    localStorage.setItem("theme" ,  theme)
-  }, [theme, colorTheme])
+    const root = window.document.documentElement;
+    root.classList.remove(colorTheme);
+    root.classList.add(theme);
+    localStorage.setItem("theme", theme);
+  }, [theme, colorTheme]);
 
-
-  return[colorTheme, setTheme]
-}
+  return [colorTheme, setTheme];
+};
 
 export default useDarkMode

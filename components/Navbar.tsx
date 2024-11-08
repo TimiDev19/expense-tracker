@@ -20,10 +20,17 @@ const Navbar = () => {
     const [darkSide, setDarkSide] = useState(
         colorTheme === 'light' ? true : false
     )
-    const toggleDarkMode = (checked: boolean) => {
-        setTheme(colorTheme)
-        setDarkSide(checked)
-    }
+    // const toggleDarkMode = (checked: boolean) => {
+    //     setTheme(colorTheme)
+    //     setDarkSide(checked)
+    // }
+
+    const toggleDarkMode = (event: React.MouseEvent<HTMLDivElement>) => {
+        const newCheckedState = !darkSide; // Toggle the current state
+        const newTheme = newCheckedState ? 'dark' : 'light'; // Determine the new theme
+        setTheme(newTheme);
+        setDarkSide(newCheckedState);
+    };
     return (
         <div className=' fixed z-[3] h-[100vh] w-[20%] bg-red-50 dark:bg-[#1a1a2e] border-r-2 border-black dark:border-red-50 flex items-center justify-center'>
             <div
