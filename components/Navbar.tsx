@@ -20,7 +20,7 @@ const Navbar = () => {
     const [darkSide, setDarkSide] = useState(
         colorTheme === 'light' ? true : false
     )
-    const toggleDarkMode = (checked) => {
+    const toggleDarkMode = (checked: boolean) => {
         setTheme(colorTheme)
         setDarkSide(checked)
     }
