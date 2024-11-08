@@ -120,6 +120,7 @@ const Contact = () => {
               src={map}
               alt=''
               className=' rounded-t-2xl'
+              style={{ width: '100%', height: 'auto' }}
             />
           </div>
         </div>
